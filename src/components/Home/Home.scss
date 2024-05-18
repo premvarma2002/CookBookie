@@ -2,5 +2,60 @@
 
 .home-scss {
   background-color: rgba(42,88,70,255) ;
-  height: 100vh;
+  height: 740px;
+  .hero-content{
+  @include flex(space-between, center);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // padding-left: 44px;
+  // padding-right: 44px;
+  padding-top: 25px;
+  margin-top: 34px;
+  justify-content: center;
+  .desc{
+    padding: 23px 54px;
+    text-align: left;
+    color: white;
+    font-size: 60px;
+    margin-bottom: 4px;
+    gap: 4px;
+    line-height: 60px;
+  }
+  .para{
+    line-height: 32px;
+    color: white;
+    padding-left: 35px;
+    font-size: large;
+  }
+  .image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 67px;
+    margin-right: 30px;
+  }
+
+  .btn {
+    border: none;
+    background-color: #0c9a61;
+    color: #ffffff;
+    margin-top: 20px;
+  
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #12a86c;
+  }
+  }
+  
+   
+}
+
 }

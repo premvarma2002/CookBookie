@@ -1,9 +1,11 @@
+import Footer from "./components/Footer/Footer"
+import Home from "./components/Home/Home"
 
-function App() {
-
+const App = () => {
   return (
     <>
-     CookBookie
+    <Home/>
+    <Footer/>
     </>
   )
 }

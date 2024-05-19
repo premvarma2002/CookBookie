@@ -3,6 +3,12 @@
 .home-scss {
   background-color: rgba(42,88,70,255) ;
   height: 740px;
+  max-width: 100%;
+  margin: 0 auto;
+    @include sm {
+        max-width: 1200%;
+    }
+
   .hero-content{
   @include flex(space-between, center);
   display: flex;

@@ -1,32 +1,32 @@
-@mixin atSmallestScreen {
-    @media screen and (max-width: 576px) {
+@mixin sm {
+  @media only screen and (min-width: 640px) {
       @content;
-    }
   }
-  
-  @mixin atSmScreen {
-    @media screen and (min-width: 576px) {
+}
+
+@mixin md {
+  @media only screen and (min-width: 768px) {
       @content;
-    }
   }
-  
-  @mixin atMdScreen {
-    @media screen and (min-width: 768px) {
+}
+
+@mixin lg {
+  @media only screen and (min-width: 1024px) {
       @content;
-    }
   }
-  
-  @mixin atLgScreen {
-    @media screen and (min-width: 992px) {
+}
+
+@mixin xl {
+  @media only screen and (min-width: 1280px) {
       @content;
-    }
   }
-  
-  @mixin atXLScreen {
-    @media screen and (min-width: 1024px) {
+}
+
+@mixin xxl {
+  @media only screen and (min-width: 1536px) {
       @content;
-    }
   }
+}
 @mixin flex($justify, $align) {
     display: flex;
     justify-content: $justify;

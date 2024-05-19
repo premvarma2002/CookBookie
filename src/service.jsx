@@ -1,34 +1,34 @@
+import { REACT_APP_APP_ID, REACT_APP_APP_KEY } from "./components/config";
 
 const queryStrings = {
-    app_id: import.meta.env.REACT_APP_APP_ID,
-    app_key: import.meta.env.REACT_APP_APP_KEY,
-  };
-
-// https://api.edamam.com/api/recipes/v2?type=public&q=pizza&app_id=ea8a35b4&app_key=56b09823e04045b663443621d9014218
+    app_id: REACT_APP_APP_ID,
+    app_key: REACT_APP_APP_KEY
+};
 
 
 export const fetchData = async (defaultQuery) => {
-    const {app_id,app_key} = queryStrings;
+    const { app_id, app_key } = queryStrings;
     try {
         const data = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${defaultQuery}&app_id=${app_id}&app_key=${app_key}`);
         const response = await data.json();
         return response;
     }
-    catch(e) {
-        console.log(e,'something went wrong')
+    catch (e) {
+        console.log(e, 'something went wrong')
         return e
     }
-}
+};
+
 
 export const fetchTabData = async (defaultQuery) => {
-    const {app_id,app_key} = queryStrings;
+    const { app_id, app_key } = queryStrings;
     try {
         const data = await fetch(`https://api.edamam.com/api/recipes/v2/${defaultQuery}?type=public&app_id=${app_id}&app_key=${app_key}`);
         const response = await data.json();
         return response;
     }
-    catch(e) {
-        console.log(e,'something went wrong')
+    catch (e) {
+        console.log(e, 'something went wrong')
         return e
     }
 }

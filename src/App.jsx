@@ -15,9 +15,9 @@ const App = () => {
     <Home/>
     <Banner/>
     <RecipeLists setLoader={setLoader}/>
-      {/* {loader && <div className='loader'>
+      {loader && <div className='loader'>
         <div className='spinner'></div>
-        </div>} */}
+        </div>}
     <Community/>
     <DownloadApp />
     <Newsletter/>

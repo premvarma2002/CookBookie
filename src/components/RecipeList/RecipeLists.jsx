@@ -1,64 +1,66 @@
-// import {useEffect,useState} from 'react'
-// import {BsSearch} from 'react-icons/bs'
-// import {fetchData} from "../../service";
-// import './RecipeList.scss';
+import { useEffect, useState } from 'react';
+import { BsSearch } from 'react-icons/bs';
+import { fetchData } from '../../service';
+import PropTypes from 'prop-types';
+import './RecipeLists.scss';
 
-// function RecipeList(props) {
-//     const [searchedTearm, setSearchedTearm] = useState('')
-//     // eslint-disable-next-line no-unused-vars
-//     const [query,setQuery] = useState('pasta')
-//     const [data,setData] = useState('');
+function RecipeLists(props) {
 
-//    const searchrecipe = (searchQuery) => {
-//     fetchData(searchQuery).then((response)=> {
-//         setData(response)
-//         props.setLoader(false)
-//     })
-//    }
+    RecipeLists.propTypes = {
+        setLoader: PropTypes.func.isRequired,
+      };
 
-//     useEffect(()=>{
-//         fetchData(query).then((response)=> {
-//             setData(response)
-//             props.setLoader(false)
-//         })
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//     },[])
-//   return (
+    const [searchedTearm, setSearchedTearm] = useState('')
+    // eslint-disable-next-line no-unused-vars
+    const [query ,setQuery] = useState('pizza')
+    const [data, setData] = useState(null);
 
-//     <div className='container'>
-//         <div className='heading-line'>
-//             <strong>Search Recipes</strong>
-//             <div className='input-wrapper' >
-//                 <input 
-//                     onChange={(e)=> setSearchedTearm(e.target.value)} 
-//                     value={searchedTearm} 
-//                     type="text" 
-//                     placeholder='Search you recipe' />
-//                 <button onClick={()=> (searchrecipe(searchedTearm),props.setLoader(true))}><BsSearch /></button>
-//             </div> 
-//         </div>
-//         <div className='flexbox'>
-//             {
-//                 data && data.hits.map((item,index)=> (
-//                     <div key={index} className='flexItem'>
-//                         <div className='img-wrapper'>
-//                             <img src={item.recipe.image} alt={item.recipe.label} />
-//                         </div>
-//                         <p>{item.recipe.label}</p>
-//                     </div>
-//                 ))
-//             }
-//         </div>
-//     </div>
-//   )
-// }
+    const searchrecipe = (searchQuery) => {
+        fetchData(searchQuery)
+        .then((response) => {
+            setData(response);
+            props.setLoader(false)
+        })
+    }
 
-// export default RecipeList;
+    useEffect(() => {
+        fetchData(query).then((response) => {
+            setData(response)
+            props.setLoader(false)
+        })
+    }, [])
 
-const RecipeLists = () => {
-  return (
-    <div>RecipeList</div>
-  )
+
+    
+
+
+    return (
+        <div className='recipe-container'>
+            <div className='heading-line'>
+                <strong>Search Recipes</strong>
+                <div className='input-wrapper' >
+                    <input
+                        onChange={(e) => setSearchedTearm(e.target.value)}
+                        value={searchedTearm}
+                        type="text" 
+                        placeholder='Search your recipe...' />
+                    <button onClick={() => (searchrecipe(searchedTearm),props.setLoader(true) )} ><BsSearch /></button>
+                </div>
+            </div>
+            <div className='flexbox'>
+                {
+                    data && data.hits.map((item, index) => (
+                        <div key={index} className='flexItem'>
+                            <div className='img-wrapper'>
+                                <img src={item.recipe.image} alt={item.recipe.label} />
+                            </div>
+                            <p style={{color:"green"}}>{item.recipe.label}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    )
 }
 
-export default RecipeLists
+export default RecipeLists;

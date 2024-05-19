@@ -1,9 +1,10 @@
 @import "../../css-config/mixins.scss";
 
-.container {
-    max-width: 1100px;
+.recipe-container {
+    max-width:max-content;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 3% 15%;
+    background-color: rgb(239, 239, 239);
   }
   
   

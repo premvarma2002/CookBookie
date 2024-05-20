@@ -3,7 +3,12 @@
 .header{
     @include flex(space-between, center);
     position: static;
-    padding: 27px 90px;
+    padding: 27px 10px;
     color: white;
     // gap: 200px ;
+    @include lg {
+        position: static;
+        padding: 27px 90px;
+        color: white;
+    }
 };

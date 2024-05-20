@@ -3,7 +3,7 @@ import Home from "./components/Home/Home"
 import Newsletter from "./components/Footer/Newsletter/Newsletter";
 import RecipeLists from "./components/RecipeList/RecipeLists";
 import Banner from "./components/Banner/Banner";
-import Community from "./components/Community/Community";
+// import Community from "./components/Community/Community";
 import DownloadApp from "./components/DownloadApp/DownloadApp";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ const App = () => {
       {loader && <div className='loader'>
         <div className='spinner'></div>
         </div>}
-    <Community/>
+    {/* <Community/> */}
     <DownloadApp />
     <Newsletter/>
     <Footer/>

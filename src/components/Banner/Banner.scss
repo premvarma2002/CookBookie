@@ -2,25 +2,66 @@
 
 .banner{
  display: flex;
+ flex-direction: column;
  justify-content:space-around;
  align-items: center;
- padding-top: 40px;
  position: relative;
+  
+ @include lg{
+    display: flex;
+    flex-direction: row;
+    height:max-content;
+    padding-top: 40px;
+
+ }
+
+ @include sm{
+
+ }
+@include md{
+
+}
 
 }
 
 .banner-img{
     width: max-content;
-    height: 420px;
+    height: 200px;
     border-radius:13px ;
+
+    @include sm {
+        height: 350px;
+        width:max-content;
+        }
+
+    @include lg {
+        height: 400px;
+        width:max-content;
+
+        }
+
+    @include xl {
+    height: 480px;
+    width:max-content;
+
+    }
 }
 
 h1,
 p{  padding-top: 8px;
-    top: 50%;
-    left: 50%
+    padding-bottom: 4px;
+    top: 10%;
+    left: 50%;
+
+    @include lg {
+        padding-top: 8px;
+        top: 50%;
+        left: 50%;
+    }
 }
 
 h1{
     line-height: 35px;
+
+    @include xl
 }

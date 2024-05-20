@@ -2,11 +2,13 @@
 
 .home-scss {
   background-color: rgba(42,88,70,255) ;
-  height: 740px;
+  height: 100%;
   max-width: 100%;
   margin: 0 auto;
-    @include sm {
-        max-width: 1200%;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+    @include lg {
+        max-width: 100%;
     }
 
   .hero-content{
@@ -23,18 +25,43 @@
     padding: 23px 54px;
     text-align: left;
     color: white;
+    font-size: 40px;
+    margin-bottom: 4px;
+    gap: 4px;
+    line-height: 60px;
+
+    @include lg{
+      padding: 23px 54px;
+    text-align: left;
+    color: white;
     font-size: 60px;
     margin-bottom: 4px;
     gap: 4px;
     line-height: 60px;
+    }
   }
   .para{
     line-height: 32px;
     color: white;
     padding-left: 35px;
     font-size: large;
+
+    @include lg{
+      font-size: small;
+      line-height: 32px;
+      color: white;
+      padding-left: 35px;
+      font-size: large
+    }
   }
   .image{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-right: 67px;
+    margin-right: 30px;
+
+  @include lg{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,17 +69,22 @@
     margin-right: 30px;
   }
 
+  }
+
   .btn {
     border: none;
     background-color: #0c9a61;
     color: #ffffff;
     margin-top: 20px;
+    padding-bottom:6px;
+    margin-bottom: 17px;
   
     padding: 10px 20px;
     font-size: 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    position: relative;
     cursor: pointer;
     border-radius: 8px;
 

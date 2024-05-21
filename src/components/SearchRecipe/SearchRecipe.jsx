@@ -6,7 +6,7 @@ const Search = ({ handleSearch }) => {
     <main>
       <div className="search-container">
         <div className="search-bar">
-          <input onChange={handleSearch} type="text" placeholder="search" />
+          <input onChange={handleSearch} type="text" placeholder="search for recipes" />
         </div>
       </div>
     </main>

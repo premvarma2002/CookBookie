@@ -1,3 +1,4 @@
+import  { useState } from "react";
 import { IoBookSharp } from "react-icons/io5";
 import { FaBowlFood } from "react-icons/fa6";
 import {
@@ -12,6 +13,16 @@ import {
 import "./RecipeCard.scss";
 
 const RecipeCard = ({ recipe }) => {
+  const [struckIngredients, setStruckIngredients] = useState([]);
+
+  const toggleStrikeThrough = (ingredient) => {
+    setStruckIngredients((prev) =>
+      prev.includes(ingredient)
+        ? prev.filter((item) => item !== ingredient)
+        : [...prev, ingredient]
+    );
+  };
+
   const {
     isOpen: isInstructionsOpen,
     onOpen: onInstructionsOpen,
@@ -66,7 +77,6 @@ const RecipeCard = ({ recipe }) => {
       </Modal>
 
       {/* Ingredients Modal */}
-      {/* Ingredients Modal */}
       <Modal isOpen={isIngredientsOpen} onClose={onIngredientsClose}>
         <ModalOverlay />
         <ModalContent className="modal">
@@ -81,7 +91,13 @@ const RecipeCard = ({ recipe }) => {
                 const measure = recipe[`strMeasure${index + 1}`];
                 return (
                   ingredient && (
-                    <li key={index}>
+                    <li
+                      key={index}
+                      onClick={() => toggleStrikeThrough(ingredient)}
+                      className={
+                        struckIngredients.includes(ingredient) ? "struck" : ""
+                      }
+                    >
                       {ingredient} - {measure}
                     </li>
                   )

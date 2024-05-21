@@ -97,15 +97,19 @@
     border-radius: 10px;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
     color: slategray;
+    
     .header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+      
   
       .topic {
         font-size: 20px;
         font-weight: 700;
-        color: var(black);
+        color:black;
+       
       }
   
       .close {
@@ -118,10 +122,19 @@
     }
   
     .body {
-      span {
-        display: block;
-        margin-bottom: 5px;
+      ul {
+        padding-left: 20px;
+        list-style-type: disc;
+  
+        li {
+          margin-bottom: 5px;
+          cursor: pointer;
+  
+          &.struck {
+            text-decoration: line-through;
+          }
+        }
       }
-    }
   }
+}
   

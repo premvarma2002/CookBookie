@@ -6,7 +6,7 @@ const Search = () => {
   return (
     <div className='search'>
       <div className='icons'>
-      <HiMiniMagnifyingGlass className='icon' size={30}/>
+      <HiMiniMagnifyingGlass className='icon' size={30} />
       <BsPerson className='icon' size={30} />
       </div>
     </div>

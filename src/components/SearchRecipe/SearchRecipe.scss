@@ -1,0 +1,27 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 300px;
+        font-size: 16px;
+        outline: none;
+  
+        &::placeholder {
+          color: #999;
+        }
+      }
+    }
+  }
+  

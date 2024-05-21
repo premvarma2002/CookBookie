@@ -1,66 +1,70 @@
-import { useEffect, useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
-import { fetchData } from '../../service';
-import PropTypes from 'prop-types';
-import './RecipeLists.scss';
+import { useEffect, useState } from "react";
+import SearchRecipe from "../../components/SearchRecipe/SearchRecipe";
+import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import PacmanLoader from "react-spinners/PacmanLoader";
+import "./RecipeLists.scss";
 
-function RecipeLists(props) {
+const RecipeLists = () => {
+  const [recipe, setRecipe] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [search, setSearch] = useState("chicken");
 
-    RecipeLists.propTypes = {
-        setLoader: PropTypes.func.isRequired,
-      };
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
 
-    const [searchedTearm, setSearchedTearm] = useState('')
-    // eslint-disable-next-line no-unused-vars
-    const [query ,setQuery] = useState('pizza')
-    const [data, setData] = useState(null);
+  useEffect(() => {
+    let timeoutId;
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`
+        );
+        const json = await response.json();
+        setRecipe(json.meals);
+        console.log(json);
+        setLoading(false);
+      } catch (error) {
+        setError("Unable to fetch data!!!");
+        setLoading(false);
+      }
+    };
+    timeoutId = setTimeout(fetchData, 2000);
 
-    const searchrecipe = (searchQuery) => {
-        fetchData(searchQuery)
-        .then((response) => {
-            setData(response);
-            props.setLoader(false)
-        })
-    }
+    return () => clearTimeout(timeoutId);
+  }, [search]);
 
-    useEffect(() => {
-        fetchData(query).then((response) => {
-            setData(response)
-            props.setLoader(false)
-        })
-    }, [])
-
-
-    
-
-
+  if (error) return <div className="error">{error}</div>;
+  if (loading)
     return (
-        <div className='recipe-container'>
-            <div className='heading-line'>
-                <strong className='search'>Search Recipes</strong>
-                <div className='input-wrapper' >
-                    <input
-                        onChange={(e) => setSearchedTearm(e.target.value)}
-                        value={searchedTearm}
-                        type="text" 
-                        placeholder='Search your recipe...' />
-                    <button onClick={() => (searchrecipe(searchedTearm),props.setLoader(true) )} ><BsSearch /></button>
-                </div>
-            </div>
-            <div className='flexbox'>
-                {
-                    data && data.hits.map((item, index) => (
-                        <div key={index} className='flexItem'>
-                            <div className='img-wrapper'>
-                                <img src={item.recipe.image} alt={item.recipe.label} />
-                            </div>
-                            <p style={{color:"green"}}>{item.recipe.label}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    )
-}
+      <div className="loading-bar">
+        <PacmanLoader
+          className="loader"
+          color="#36d7b7"
+          cssOverride={{}}
+          loading
+          size={25}
+          speedMultiplier={1}
+        />
+      </div>
+    );
+
+  return (
+    <main>
+      <SearchRecipe handleSearch={handleSearch} />
+      <div className="recipecard-api">
+        {recipe?.length > 0 ? (
+          recipe.map((recipe) => (
+            <RecipeCard key={recipe.idMeal} recipe={recipe} />
+          ))
+        ) : (
+          <div className="not-found">No results found</div>
+        )}
+      </div>
+    </main>
+  );
+};
 
 export default RecipeLists;

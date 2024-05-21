@@ -66,6 +66,7 @@ const RecipeCard = ({ recipe }) => {
       </Modal>
 
       {/* Ingredients Modal */}
+      {/* Ingredients Modal */}
       <Modal isOpen={isIngredientsOpen} onClose={onIngredientsClose}>
         <ModalOverlay />
         <ModalContent className="modal">
@@ -74,13 +75,19 @@ const RecipeCard = ({ recipe }) => {
             <ModalCloseButton className="close" />
           </div>
           <ModalBody className="body">
-            {Array.from({ length: 20 }, (_, index) => (
-              <span key={index}>
-                {recipe[`strIngredient${index + 1}`]}
-                {index < 19 && <br />}{" "}
-                {/* Add <br /> except after the last ingredient */}
-              </span>
-            ))}
+            <ul>
+              {Array.from({ length: 20 }, (_, index) => {
+                const ingredient = recipe[`strIngredient${index + 1}`];
+                const measure = recipe[`strMeasure${index + 1}`];
+                return (
+                  ingredient && (
+                    <li key={index}>
+                      {ingredient} - {measure}
+                    </li>
+                  )
+                );
+              })}
+            </ul>
           </ModalBody>
         </ModalContent>
       </Modal>

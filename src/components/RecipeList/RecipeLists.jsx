@@ -10,12 +10,11 @@ const RecipeLists = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("chicken");
 
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
+  const handleSearch = (searchTerm) => {
+    setSearch(searchTerm);
   };
 
   useEffect(() => {
-    let timeoutId;
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -24,16 +23,14 @@ const RecipeLists = () => {
         );
         const json = await response.json();
         setRecipe(json.meals);
-        console.log(json);
         setLoading(false);
       } catch (error) {
         setError("Unable to fetch data!!!");
         setLoading(false);
       }
     };
-    timeoutId = setTimeout(fetchData, 2000);
 
-    return () => clearTimeout(timeoutId);
+    fetchData();
   }, [search]);
 
   if (error) return <div className="error">{error}</div>;
@@ -53,7 +50,7 @@ const RecipeLists = () => {
 
   return (
     <main>
-      <SearchRecipe handleSearch={handleSearch} />
+      <SearchRecipe handleSearch={handleSearch} setLoader={setLoading} />
       <div className="recipecard-api">
         {recipe?.length > 0 ? (
           recipe.map((recipe) => (

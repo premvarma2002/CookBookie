@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import { BsSearch } from "react-icons/bs";
 import "./SearchRecipe.scss";
 
-const Search = ({ handleSearch }) => {
+const SearchRecipe = ({ handleSearch, setLoader }) => {
+  const [searchedTerm, setSearchedTerm] = useState("");
+
+  const handleSearchClick = () => {
+    handleSearch(searchedTerm);
+    setLoader(true);
+  };
+
   return (
     <main>
-      <div className="search-container">
-        <div className="search-bar">
-          <input onChange={handleSearch} type="text" placeholder="search for recipes" />
-        </div>
+      <strong className="search">Search Recipes</strong>
+      <div className="input-wrapper">
+        <input
+          onChange={(e) => setSearchedTerm(e.target.value)}
+          value={searchedTerm}
+          type="text"
+          placeholder="Search your recipe..."
+        />
+        <button onClick={handleSearchClick}>
+          <BsSearch />
+        </button>
       </div>
     </main>
   );
 };
 
-export default Search;
+export default SearchRecipe;

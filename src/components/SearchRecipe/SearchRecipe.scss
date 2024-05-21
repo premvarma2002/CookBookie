@@ -1,41 +1,49 @@
 @import "../../css-config/mixins.scss";
 
 
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    height:30px;
-  
-    .search-bar {
-      display: flex;
-      align-items: center;
-      background-color: #fff;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-      @include lg {
-        display: flex;
-        font-size: 34px;
+.search {
+  line-height: 6px;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-        align-items: center;
-        background-color: #fff;
-        border-radius: 4px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-       
-      input {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 300px;
-        font-size: 16px;
-        outline: none;
-  
-        &::placeholder {
-          color: #999;
-        }
-      }
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: center;
+  margin: 0 auto;
+
+  input {
+    width: 80%;
+    height: 45px;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid #6fcb9f;
+    font-size: 20px;
+    padding: 5px 15px;
+
+    &::placeholder {
+      color: #999;
     }
   }
-  
+
+  button {
+    background-color: #6fcb9f;
+    outline: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    border: none;
+    font-size: 18px;
+    width: 50px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+  }
+}
+

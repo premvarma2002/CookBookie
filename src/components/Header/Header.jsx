@@ -1,14 +1,14 @@
 import './Header.scss';
 import Logo from '../Home/Logo/Logo';
-import Navbar from '../Home/Navbar/Navbar';
-import Search from './Search/Search';
+// import Navbar from '../Home/Navbar/Navbar';
+import BsSearch from './Search/Search';
 
-const Header = () => {
+const Header = ({ scrollToSearch }) => {
   return (
     <div className="header">
       <Logo/>
-      <Navbar/>
-      <Search/>
+      {/* <Navbar/> */}
+      <BsSearch onClick={scrollToSearch}/>
     </div>
   )
 }

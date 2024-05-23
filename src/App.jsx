@@ -1,5 +1,5 @@
 import Footer from "./components/Footer/Footer"
-import Home from "./components/Home/Home"
+import Home from "./pages/Home/Home"
 import Newsletter from "./components/Footer/Newsletter/Newsletter";
 import RecipeLists from "./components/RecipeList/RecipeLists";
 import Banner from "./components/Banner/Banner";

@@ -1,6 +1,6 @@
 import './Header.scss';
-import Logo from '../Home/Logo/Logo';
-import Navbar from '../Home/Navbar/Navbar';
+import Logo from '../Logo/Logo';
+import Navbar from '../Navbar/Navbar';
 import BsSearch from './Search/Search';
 
 const Header = ({ scrollToSearch }) => {

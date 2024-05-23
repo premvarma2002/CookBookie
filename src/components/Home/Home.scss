@@ -5,7 +5,8 @@
   height: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding-bottom: 15px;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
   margin-bottom: 40px;
     @include lg {
         max-width: 100%;
@@ -19,11 +20,11 @@
   // padding-left: 44px;
   // padding-right: 44px;
   padding-top: 25px;
-  margin-top: 34px;
+  margin-top: 0px;
   justify-content:space-around;
   
   .desc{
-    padding: 23px 54px;
+    padding: 23px 24px;
     text-align: left;
     color: white;
     font-size: 40px;

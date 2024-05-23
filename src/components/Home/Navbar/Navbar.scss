@@ -3,12 +3,13 @@
 .nav-items{
   display: none;
 
-  .li{
+  .li-nav{
   list-style: none;
   display: flex;
   gap: 24px;
   font-size: 25px;
   margin: 0 22px;
+  cursor: pointer;
   }
   @include lg{
     display: flex;

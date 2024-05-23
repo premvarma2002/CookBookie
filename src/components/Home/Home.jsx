@@ -1,4 +1,3 @@
-import Header from "../Header/Header";
 import "./Home.scss";
 import { motion } from 'framer-motion';
 
@@ -7,7 +6,6 @@ const Home = () => {
   return (
     <>
     <div className='home-scss'>
-      <Header/>
     <div className="hero-content">
       <motion.div animate={{ x: 100 }}>
          

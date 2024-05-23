@@ -3,11 +3,10 @@ import './Navbar.scss';
 const Navbar = () => {
   return (
     <div className='nav-items'>
-        <ul className='li'>
+        <ul className='li-nav'>
             <li>Home</li>
             <li>Recipes</li>
-            <li>Articles</li>
-            <li>About Us</li>
+            <li>Favourites</li>
         </ul>
     </div>
   )
